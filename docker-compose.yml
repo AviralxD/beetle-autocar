@@ -1,0 +1,32 @@
+services:
+  zed_ros2:
+    build:
+      context: .
+      args:
+        USERNAME: "${USERNAME:-queen}"
+        UID: "${UID:-1000}"
+        GID: "${GID:-1000}"
+        WS_NAME: "${WORKSPACE:-beetle_ws}"
+        TMUXP_CONF: "${TMUXP_CONF:-tmuxp.yaml}"
+        ENTRYPOINT: "${ENTRYPOINT:-entrypoint.sh}"
+    container_name: beetle-zed
+    stdin_open: true
+    tty: true
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /dev:/dev
+      - ./src:/home/${USERNAME:-queen}/${WORKSPACE:-beetle_ws}/src
+      - /usr/local/zed/resources:/usr/local/zed/resources
+      - /usr/local/zed/settings:/usr/local/zed/settings
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

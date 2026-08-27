@@ -1,0 +1,25 @@
+{
+    "names": {
+        "zed_interfaces": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_msgs": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_description": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_debug": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_components": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_wrapper": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        },
+        "zed_display_rviz2": {
+            "cmake-args": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"]
+        }
+    }
+}
