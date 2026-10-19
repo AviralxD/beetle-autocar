@@ -54,16 +54,18 @@ Run the entrypoint script (named rebuild.sh in the repo) within the container to
 
 **Note:** The build script automatically sources the workspace
 
----
+## Running controller teleop
+Ensure you've built and sourced the beetle_zed package
 
-## Running SLAM w rviz2
-Ensure you've built the beetle_zed package
 ```bash
 colcon build --packages-select beetle_zed --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source /home/queen/beetle_ws/install/setup.bash
-ros2 launch beetle_zed slam.launch.py
+ros2 launch beetle_zed teleop.launch.py serial_port:=/dev/ttyACM0
 ```
-
 **Note:** The build script automatically sources the workspace
+
+Hold the controller's deadman button (LB by default) to enable teleop. \
+Use `throttle_axis`, `steering_axis`, `deadman_button`, `serial_port`, and
+`baud_rate` launch arguments to match the microcontroller and gamepad.
 
 ---

@@ -7,12 +7,27 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
 find_package(zed_wrapper REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(sensor_msgs REQUIRED)
+
+install(PROGRAMS
+  src/beetle_teleop.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME beetle_teleop
+)
+
+install(PROGRAMS
+  src/beetle_serial.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME beetle_serial
+)
 
 install(DIRECTORY 
   launch
   config
+  arduino
   DESTINATION share/${PROJECT_NAME}
 )
 
