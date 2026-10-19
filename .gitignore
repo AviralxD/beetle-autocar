@@ -1,1 +1,4 @@
 .env
+src/build/*
+.vscode/*
+src/.vscode/*
